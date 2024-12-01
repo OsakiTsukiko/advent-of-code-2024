@@ -4,8 +4,10 @@ CC = gcc
 CXX = g++
 RC = rustc
 ZIG = zig
+JAVAC = javac
+JAVA = java
 
-all: rust cpp c zig
+all: rust cpp c zig java
 
 rust:
 	$(RC) $(input).rs -o $(output)
@@ -24,3 +26,8 @@ c:
 
 zig: 
 	$(ZIG) run $(input).zig
+
+java:
+	$(JAVAC) $(input).java
+	$(JAVA) $(input)
+	rm $(input).class
